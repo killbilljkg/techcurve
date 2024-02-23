@@ -1,23 +1,14 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import DatePicker from './components/datePicker';
+import { endOfDay, startOfDay } from 'rsuite/esm/utils/dateUtils';
 
 function App() {
+  const [selectedDate, setSelectedDate] = useState([startOfDay(new Date()), endOfDay(new Date()-1)])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          <DatePicker bgColor={'green'} setSelectedDate={setSelectedDate} selectedDate={selectedDate}/>
     </div>
   );
 }
